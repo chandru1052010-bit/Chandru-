@@ -14,10 +14,9 @@ jobs:
           flutter-version: '3.24.0'
       - run: pip install flet
       - run: |
-          mkdir -p kpr_app
-          cp main.py kpr_app/main.py
-          cp requirements.txt kpr_app/requirements.txt
-          cp Picsart_*.jpg kpr_app/icon.png || true
+          flet create kpr_app
+          cp main.py kpr_app/src/main.py
+          cp Picsart_*.jpg kpr_app/src/assets/icon.png || true
           cd kpr_app
           flet build apk --product "KPR" --org "com.kpr.app"
       - uses: actions/upload-artifact@v4
