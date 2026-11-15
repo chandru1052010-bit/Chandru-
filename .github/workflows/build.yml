@@ -15,15 +15,15 @@ jobs:
           java-version: '17'
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.27.0'
+          flutter-version: '3.47.9'
       - run: pip install flet
       - run: |
-          flet create kpr_app
+          yes | flet create kpr_app
           cp main.py kpr_app/src/main.py
           mkdir -p kpr_app/src/assets
           cp Picsart_*.jpg kpr_app/src/assets/icon.png || true
           cd kpr_app
-          flet build apk --product "KPR" --org "com.kpr.app" --verbose
+          yes | flet build apk --product "KPR" --org "com.kpr.app" --verbose
       - uses: actions/upload-artifact@v4
         with:
           name: KPR-App-APK
