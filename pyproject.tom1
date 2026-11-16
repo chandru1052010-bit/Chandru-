@@ -1,0 +1,8 @@
+[project]
+name = "instapro"
+version = "1.0.0"
+description = "Insta Pro App"
+dependencies = [
+    "flet",
+    "requests"
+]
